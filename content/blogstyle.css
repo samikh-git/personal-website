@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body{
+    margin: 5%;
+    font-family: "Lato", sans-serif
+}
+
+footer{
+    background-color: lightgray;
+    margin-top: 5%
+}
+
+p{
+    text-align: justify
+}
+
+#date{
+    font-style: italic
+}
+
