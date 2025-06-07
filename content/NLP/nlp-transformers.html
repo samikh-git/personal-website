@@ -5,7 +5,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>nlp-transformers</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
-    pre { line-height: 125%; }
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+footer{
+    background-color: lightcyan;
+    margin-top: 5%
+}
+pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
@@ -2739,6 +2744,8 @@ button.jp-ToolbarButtonComponent .jp-ToolbarButtonComponent-label {
 body {
   color: var(--jp-ui-font-color1);
   font-size: var(--jp-ui-font-size1);
+  font-family: "Lato", sans-serif;
+  margin: 5%;
 }
 
 /* Disable native link decoration styles everywhere outside of dialog boxes */
@@ -3782,7 +3789,7 @@ button.jp-Dialog-close-button {
   text-align: left;
   padding-left: var(--jp-code-padding);
   line-height: var(--jp-code-line-height);
-  font-family: var(--jp-code-font-family);
+  font-family: "Lato", sans-serif;
 }
 
 .jp-RenderedText pre,
@@ -3999,7 +4006,7 @@ button.jp-Dialog-close-button {
 
 .jp-RenderedHTMLCommon {
   color: var(--jp-content-font-color1);
-  font-family: var(--jp-content-font-family);
+  font-family: "Lato", sans-serif;
   font-size: var(--jp-content-font-size1);
   line-height: var(--jp-content-line-height);
 
@@ -7510,56 +7517,7 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9df375ea">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>huggingface_hub
-<span class="o">!</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span><span class="s1">'transformers&gt;=4.49.0'</span><span class="w"> </span>datasets<span class="w"> </span>timm
-<span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>matplotlib
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6109f8ab">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">huggingface_hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">notebook_login</span>
-
-<span class="n">notebook_login</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2fef913">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">transformers</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Version:"</span><span class="p">,</span> <span class="n">transformers</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Location:"</span><span class="p">,</span> <span class="n">transformers</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Python executable:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<main>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a77807f92f26ee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7609,7 +7567,7 @@ a.anchor-link {
 <li><em>Tokenization</em>: we split text up into tokens</li>
 <li><em>Numericalization</em>: convert each token into a number</li>
 </ul>
-<p>This process is model dependent. Each model will have a tokenizer associated with it. We'll see when developing our Dickens classifier. We'll use the "Deberta v3-small" model developed by Microsoft.</p>
+<p>This process is model dependent. Each model will have a tokenizer associated with it. We'll see when developing our Dickens classifier.</p>
 </div>
 </div>
 </div>
@@ -7789,20 +7747,6 @@ a.anchor-link {
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">,</span> <span class="s2">"attention_mask"</span><span class="p">,</span> <span class="s2">"labels"</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="n">dataloaders</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9fa9baea">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
@@ -8048,33 +7992,9 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f7c4de53">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3df8baa2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-
-<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"mps"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </main>
+<footer> 
+        <p> Sami Houssaini's Blog | 2025 | <a href='https://www.linkedin.com/in/samihoussaini/'> LinkedIn</a> | <a href="https://github.com/samikh-git"> GitHub </a> | <a href = "../../index.html"> Home</a>
+</footer>
 </body>
 </html>
