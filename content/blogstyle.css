@@ -2,19 +2,19 @@
 
 body{
     margin: 5%;
-    font-family: "Lato", sans-serif
+    font-family: "Lato", sans-serif;
 }
 
 footer{
     background-color: lightcyan;
-    margin-top: 5%
+    margin-top: 5%;
 }
 
 p{
-    text-align: justify
+    text-align: justify;
 }
 
 #date{
-    font-style: italic
+    font-style: italic;
 }
 
