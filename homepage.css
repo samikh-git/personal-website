@@ -10,7 +10,6 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 2rem;
 }
 
 .resume-link {
@@ -29,8 +28,8 @@ body{
 footer{
     background-color: lightcyan;
     margin-top: 5%;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    border-radius: 1rem;
+    padding: 0.25rem;
 }
 
 p{
@@ -193,4 +192,22 @@ p{
         align-items: flex-start;
         gap: 0.5rem;
     }
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: lightcyan;
+}
+
+.book-title {
+    text-decoration: italic; 
 }

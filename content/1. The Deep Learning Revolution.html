@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <link rel="stylesheet" href="../homepage.css">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <link rel="icon" type="image/x-icon" href="../favicon.ico">
+        <title>1. The Deep Learning Revolution</title>
+    </head>
+    <body>
+    <div>
+    <h1> 1. The Deep Learning Revolution</h1>
+    <div class="navigation">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+        </div>
+    <h2>Example of how to learn a function that fits synthetic data</h2>
+<p>We take a set of <span class="arithmatex">\(N\)</span> points that are spaced uniformly on an interval <span class="arithmatex">\([a,b]\)</span>. We then generate a value through a function <span class="arithmatex">\(\sin{(2\pi x)}\)</span>. We then add some random noise (normally distributed) to each point to obtain the target value <span class="arithmatex">\(t_n\)</span> for each point we chose. </p>
+<p>Our objective will be to predict the value <span class="arithmatex">\(\hat{t}\)</span> from a new input value <span class="arithmatex">\(\hat{x}\)</span> of the input variable.</p>
+<p>We consider the most basic way of fitting these points to a function: polynomial interpolation!</p>
+<p>After interpolating from our data, we should obtain a function with the following form: </p>
+<p>$$ y(x, \textbf{w}) = w_0 + w_1x + w_2x^2 + \dots + w_Mx^M = \sum_{j = 0}^M w_jx^j$$
+where <span class="arithmatex">\(M\)</span> is the degree (order) of the polynomial. The coefficients of this polynomial are going to be collected in a vector <span class="arithmatex">\(\textbf{w}\)</span>. Since <span class="arithmatex">\(y\)</span> is linear in the coefficients, we say that it is linear. In general, all functions that are linear in the unknown parameters are called <em>linear models</em>.</p>
+<p>To learn the weights, we will try to minimize an error (<em>loss</em> or objective) function. A common one is: </p>
+<div class="arithmatex">\[ E(\textbf{w}) = \frac{1}{2}\sum_{n=1}^N(y(x_n, \textbf{w}) - t_n)^2 \]</div>
+<p>When we minimize <span class="arithmatex">\(E\)</span>, we will get an optimal value for the weights that we will call  <span class="arithmatex">\(\textbf{w}^*\)</span>. Our polynomial will then be <span class="arithmatex">\(y(x, \textbf{w}^*)\)</span>.</p>
+<p>We then need to choose the order for our polynomial. To do this, we choose different <span class="arithmatex">\(M\)</span> and see which one fits nicest to our data. We notice as we increase <span class="arithmatex">\(M\)</span>, the function fits the data perfectly but does not resemble our target function (<span class="arithmatex">\(\sin{(2\pi x)})\)</span>. ![[Screenshot 2025-09-10 at 3.44.12 PM.png]]
+To account for these differences, we usually test our model's ability to generalize by testing it on a <em>test set</em> which is comprised of data points which we have not previously seen. We will then calculate the error on the training set and also on this testing set. </p>
+<p>Introducing a new error function <span class="arithmatex">\(E(\textbf{w})\)</span> that has the advantage to be sometimes more convenient our previous one called the root-mean-square (RMS) error which is defined as: </p>
+<div class="arithmatex">\[ E_{RMS} = \sqrt{\frac{1}{N}\sum_{n=1}^N(y(x_n,\textbf{w}) - t_n)^2} \]</div>
+<p>This new error function has the following advantages: 
+1. The division by <span class="arithmatex">\(N\)</span> allows us to compare datasets with different sizes
+2. The square root ensures that our error is in the same units as our target variable <span class="arithmatex">\(t\)</span></p>
+<p>If we compare this error of the model for different <span class="arithmatex">\(M\)</span> on the test and training set we notice the following trend: 
+![[Screenshot 2025-09-10 at 3.50.50 PM.png]]
+We see that as <span class="arithmatex">\(M\)</span> increases the error on the training set goes to 0 as <span class="arithmatex">\(M = 9\)</span>. However, the error on the <strong>test</strong> set <strong>increases</strong>. It initially lowers to reach a minimum at <span class="arithmatex">\(M = 3\)</span> but then increases as <span class="arithmatex">\(M\)</span> increases.</p>
+<p>What is happening here? </p>
+<p>The model is overfitting to the training data. We know from mathematics that a unique polynomial can be interpolated from 10 points of degree less than or equal to 9. This is why we have an error of <span class="arithmatex">\(0\)</span> as <span class="arithmatex">\(M = 9\)</span> on the training set. However, if we look at our function, it exhibits great swings and variations between points making it poor at generalizing to the overall trend. This explains the increase in error on the test set.</p>
+<p>Additionally, as the size of the test set increases, we see that our model generalizes much better and stops overfitting.![[Screenshot 2025-09-10 at 5.04.52 PM.png]]
+There is a heuristic that says that the size of the data set should be no less than some multiple (5 or 10) of the number of learnable parameters in the model.</p>
+<p>That rule of thumb is only really applicable to classical statistics. Deep learning models tend to have many more learnable parameters than the number of data training points. </p>
+<p><strong>Regularization</strong></p>
+<p>This helps avoid overfitting while not having to limit the number of parameters. It usually involves adding a penalty term to the error function to discourage coefficients from having large magnitudes. </p>
+<p>The most common way is by adding a little fudge factor that is the sum of all the squares of the coefficients. It gives a modified error function: </p>
+<p>$$ \tilde{E}(\textbf{w}) = \frac{1}{2}\sum_{n = 1}^N(y(x_n, \textbf{w}) - t_n)^2 + \frac{\lambda}{2}||\textbf{w}||^2 $$
+where the coefficient <span class="arithmatex">\(\lambda\)</span> determines the relative importance of the regularization term and <span class="arithmatex">\(||\textbf{w}||^2=\textbf{w}^{\text{T}}\textbf{w}\)</span> . ![[Screenshot 2025-09-11 at 5.30.39 PM.png]]
+We see that for lower values of <span class="arithmatex">\(\lambda\)</span> that we get a closer fit to the actual function! 
+When plotting RMS error for training set and test sets against <span class="arithmatex">\(\ln{\lambda}\)</span> , we see that <span class="arithmatex">\(\lambda\)</span> effectively determines the complexity of the model and the degree of over-fitting.</p>
+<p>![[Screenshot 2025-09-11 at 5.32.27 PM.png]]
+<span class="arithmatex">\(\lambda\)</span> is known as a <em>hyperparameter</em> that is fixed during the minimization of the error function to determine the model's parameters <span class="arithmatex">\(\textbf{w}\)</span>.</p>
+<p>The usual process is determined by the following procedure: 
+1. Determine the weights on the <em>training set</em>
+2. Validate the model on the <em>validation set</em>
+3. Choose the model that has lowest error on the <em>validation set</em>
+4. If the validation set is too small, use a larger 3rd <em>test set</em></p>
+<p>If data availability is a major constraint, we will want to use as much as possible for the training of our model. If the validation set is too small, we will get a relatively poor estimate of our predictive performance. A solution is a technique called <em>cross-validation</em>. </p>
+<p>This technique uses a proportion <span class="arithmatex">\((S-1)/S\)</span> of the available data to be used for training while making use of all of it for testing. If we set <span class="arithmatex">\(S = N\)</span> (with <span class="arithmatex">\(N\)</span> being the size of the the whole dataset), we get the <em>leave-one-out</em> technique. </p>
+<p>These techniques are not really helpful as we work with larger datasets and more hyperparameters as it requires exponentially more runs to fit the model</p>
+<h2>Brief History of Machine Learning</h2>
+<h2>The Neuron</h2>
+<p>These can be described mathematically by the following function: </p>
+<p>$$ a = \sum_{i = 1}^M w_ix_i $$
+$$ y = f(a) $$
+where <span class="arithmatex">\(x_1, \dots, x_M\)</span> represent <span class="arithmatex">\(M\)</span> inputs corresponding to activities of other neurons that send connections to this neuron and <span class="arithmatex">\(w_1, \dots, w_M\)</span> are continuous variables called <em>weights</em>. The quantity <span class="arithmatex">\(a\)</span> is the <em>pre-activation</em>, the nonlinear function <span class="arithmatex">\(f(\cdot)\)</span> is the <em>activation function</em> and <span class="arithmatex">\(y\)</span> is called the <em>activation</em>.</p>
+<h2>Single-Layer Networks</h2>
+<p>The <em>perceptron</em> is a type of single layer neural network that has an activation function with the following functional form: </p>
+<p>$$ f(a) = \begin{cases} 0, \text{ if } a \leq 0, \ 1, \text{ if } a \geq 0 \end{cases}$$
+The perceptron algorithm guarantees that if there exists a set of weight values that the perceptron can achieve perfect classification on its training data then the algorithm is guaranteed to find the solution in a finite number of steps (developed by Rosenblatt 1962).</p>
+<p>Perceptrons were limited by the lack of effective training algorithms.</p>
+<h2>Backpropagation</h2>
+<p>Solution to the training problem was given by using gradient-based optimization methods. This meant using continuous differentiable activation functions with non-zero gradients. They also introduced error functions that define how well a choice of parameters predicts targets on the training set. </p>
+<p>![[Screenshot 2025-09-11 at 7.56.05 PM.png]]
+This is an example of a <em>feed-forward neural network</em>. </p>
+<p>To train this network, parameters are first initialized stochastically and then are iteratively updated using gradient-based optimization techniques. The derivatives of the error functions are calculated efficiently using <em>error backpropagation</em>. Here, the information flows from the outputs to the inputs. The most well known of these algorithms is <em>stochastic gradient descent</em>. </p>
+<p><em>Prior knowledge</em> or <em>Inductive biases</em> can be used to further learn insights about the data. </p>
+<p>In deep neural networks, the hidden layers can perform <em>representational learning</em> where they can learn how to transform input data into a new representation that is more semantically rich and is easier for the final layer/s to solve. This is what allows deep neural networks to be used for transfer learning. These models that can be fine-tuned for downstream tasks are called foundational models. </p>
+</div>
+</body>
+    
+    <footer> 
+        <p> Sami Houssaini | 2025 | <a href="https://www.linkedin.com/in/samihoussaini/"> LinkedIn </a> | <a href="https://github.com/samikh-git"> GitHub </a>
+    </footer> 
+</html>
