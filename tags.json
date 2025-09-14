@@ -1,0 +1,65 @@
+{
+  "posts": {
+    "content/example_post.html": {
+      "title": "Getting Started with Deep Learning",
+      "date": "12/25/2024",
+      "tags": [
+        "[\"deep-learning\"",
+        "\"neural-networks\"",
+        "\"tutorial\"",
+        "\"python\"]"
+      ]
+    },
+    "content/enhanced_example.html": {
+      "title": "Advanced Markdown Rendering Demo",
+      "date": "12/25/2024",
+      "tags": [
+        "[\"markdown\"",
+        "\"math\"",
+        "\"code\"",
+        "\"demo\"",
+        "\"rendering\"]"
+      ]
+    }
+  },
+  "tag_counts": {
+    "[\"deep-learning\"": 1,
+    "\"neural-networks\"": 1,
+    "\"tutorial\"": 1,
+    "\"python\"]": 1,
+    "[\"markdown\"": 1,
+    "\"math\"": 1,
+    "\"code\"": 1,
+    "\"demo\"": 1,
+    "\"rendering\"]": 1
+  },
+  "tag_posts": {
+    "[\"deep-learning\"": [
+      "content/example_post.html"
+    ],
+    "\"neural-networks\"": [
+      "content/example_post.html"
+    ],
+    "\"tutorial\"": [
+      "content/example_post.html"
+    ],
+    "\"python\"]": [
+      "content/example_post.html"
+    ],
+    "[\"markdown\"": [
+      "content/enhanced_example.html"
+    ],
+    "\"math\"": [
+      "content/enhanced_example.html"
+    ],
+    "\"code\"": [
+      "content/enhanced_example.html"
+    ],
+    "\"demo\"": [
+      "content/enhanced_example.html"
+    ],
+    "\"rendering\"]": [
+      "content/enhanced_example.html"
+    ]
+  }
+}

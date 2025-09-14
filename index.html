@@ -6,7 +6,9 @@
         <title> Home </title>
     </head>
     <body>
-        <h1> Sami Houssaini's Personal Website</h1>
+        <div class="header-container">
+            <h1> Sami Houssaini</h1>
+        </div>
         
         <div> 
             <h2> About me</h2>
@@ -14,27 +16,30 @@
         </div>
 
         <div> 
-            <h2> Table of contents - Chronological</h2>
-            <div id="section">
-                <p id="section-title"> Fast AI</p>
-                <ol> 
-                     <a href = "./content/fastai-pt1.html"> Blog 1 </a>: Fast AI Deep Learning Course Part 1 (04/22/2025) 
-                </ol>
-                <ol>
-                    <a href = "./content/ch4.html"> Blog 2 </a>: Ch4 of the FastAI Textbook: building a neural network, MNIST digit classifier (05/28/2025)
-                </ol>
-                <ol> 
-                    <a href = "./content/NLP/nlp-transformers.html"> Blog 3 </a>: NLP - RNNs, Transformers, HuggingFace (06/07/2025)
-                </ol>
-                <ol>
-                    <a href = "./content/tabular.html"> Blog 4</a>: Training A Classification Model for Titanic Survivors (06/10/2025)
-                </ol>
-                <ol>
-                    <a href = "./content/collab.html"> Blog 5</a>: Creating a Collaborative Filtering Recommendation System Using The Movie Lens Dataset (06/11/2025)
-                </ol>
-                <ol> 
-                    <a href = "./content/cnn/cnn.html"> Blog 6 </a>: Convolutional Neural Network (CNN) (06/18/2025)
-                </ol>
+            <h2> Table of contents</h2>
+            
+            <!-- All Blog Posts Section Card -->
+            <div class="section-card">
+                <a href="./content/fastai.html" class="section-link">
+                    <div class="section-header">
+                        <span class="section-title">Fast AI Blog Posts</span>
+                        <span class="section-arrow">→</span>
+                    </div>
+                    <div class="section-description">
+                        A collection of blog posts about Fast AI's course Deep Learning for Coders
+                    </div>
+                </a>
+            </div>
+            <div class="section-card">
+                <a href="./content/fastai.html" class="section-link">
+                    <div class="section-header">
+                        <span class="section-title">Deep Learning, Foundations and Concepts (Bishop)  </span>
+                        <span class="section-arrow">→</span>
+                    </div>
+                    <div class="section-description">
+                        A collection of notes on Christopher and Hugh Bishop's book "Deep Learning, Foundations and Concepts"
+                    </div>
+                </a>
             </div>
         </div>
     </body>
